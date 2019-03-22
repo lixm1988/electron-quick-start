@@ -1,8 +1,7 @@
 os: windows
 language: node_js
 # nodejs版本
-NVS: 
-    - '7'
+nvs add 10
 
 # Travis-CI Caching
 cache:
