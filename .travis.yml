@@ -26,9 +26,9 @@ branches:
   only:
     - master
 deploy:
-  provider: releases	
+  provider: dist	
   file_glob: true	# 无其他依赖项所以执行npm run build 构建就行了
-  file: "dist/*.*"
+  file: "./*.*"
   skip_cleanup: true
 env:
  global:
