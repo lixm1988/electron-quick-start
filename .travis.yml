@@ -1,13 +1,15 @@
-os: windows
 language: node_js
-# nodejs版本
-  node_js: "10"
 
-# Travis-CI Caching
+node_js:
+  - "10"
+
+os:
+  - osx
+  - windows
+
 cache:
   directories:
-    - node_modules
-
+    - "node_modules"
 
 # S: Build Lifecycle
 install:
@@ -15,7 +17,8 @@ install:
 
 # 无其他依赖项所以执行npm run build 构建就行了
 script:
-  - npm run dist-win
+  - if [[ "$TRAVIS_OS_NAME" == 'windows' ]]; then npm run dist-win; fi
+  - if [[ "$TRAVIS_OS_NAME" == 'osx' ]]; then npm run dist-mac; fi
 # E: Build LifeCycle
 
 #指定分支，只有指定的分支提交时才会运行脚本
