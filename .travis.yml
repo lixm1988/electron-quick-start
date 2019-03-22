@@ -1,3 +1,4 @@
+os: windows
 language: node_js
 # nodejs版本
 node_js: 
