@@ -1,9 +1,6 @@
 
 language: node_js
-node_js:"10"
-  env:
-    - ELECTRON_CACHE=$HOME/.cache/electron
-    - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
+node_js:"9"
 install:
   - npm install
 script: npm run dist-win
