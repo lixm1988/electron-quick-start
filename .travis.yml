@@ -13,8 +13,6 @@ cache:
 install:
   - npm install
 
-before_script:
-
 # 无其他依赖项所以执行npm run build 构建就行了
 script:
   - npm run dist-win
@@ -24,6 +22,11 @@ script:
 branches:
   only:
     - master
+deploy:	before_script:
+  provider: releases	
+   file_glob: true	# 无其他依赖项所以执行npm run build 构建就行了
+  file: "dist/*.*"	script:
+  skip_cleanup: true
 env:
  global:
    # 我将其添加到了travis-ci的环境变量中
