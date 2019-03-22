@@ -6,11 +6,6 @@ node_js:"10"
     - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
 install:
   - npm install
-cache:
-  directories:
-  - node_modules
-  - "$HOME/.cache/electron"
-  - "$HOME/.cache/electron-builder"
 script: npm run dist-win
 deploy:
   provider: releases
