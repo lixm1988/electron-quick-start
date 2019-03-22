@@ -1,0 +1,25 @@
+
+language: node_js
+node_js:
+  - "10"
+  env:
+    - ELECTRON_CACHE=$HOME/.cache/electron
+    - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
+install:
+  - npm install
+cache:
+  directories:
+  - node_modules
+  - "$HOME/.cache/electron"
+  - "$HOME/.cache/electron-builder"
+script: npm run dist-win
+deploy:
+  provider: releases
+  file_glob: true
+  file: "dist/*.*"
+  skip_cleanup: true
+
+  on:
+    repo: lixm1988/electron_quich_start
+    # all_branches: true
+    tags: true
