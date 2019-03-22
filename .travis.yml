@@ -2,7 +2,7 @@ os: windows
 language: node_js
 # nodejs版本
 node_js: 
-    - '10'
+    - '7'
 
 # Travis-CI Caching
 cache:
