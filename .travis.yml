@@ -7,13 +7,14 @@ os:
   - osx
   - windows
 
+install:
+  - npm install
+
 cache:
   directories:
     - "node_modules"
 
-# S: Build Lifecycle
-install:
-  - npm install
+# S: Build Lifecycle=
 
 # 无其他依赖项所以执行npm run build 构建就行了
 script:
@@ -22,14 +23,14 @@ script:
 # E: Build LifeCycle
 
 #指定分支，只有指定的分支提交时才会运行脚本
-branches:
-  only:
-    - master
 deploy:
   provider: dist	
   file_glob: true	# 无其他依赖项所以执行npm run build 构建就行了
   file: "./*.*"
   skip_cleanup: true
+  github_token: $GH_TOKEN
+  on:
+    branch: master
 env:
  GH_TOKEN: "b83e6a9253bf98fbf30d2c282880bcf8b7882cae"
    # 我将其添加到了travis-ci的环境变量中
